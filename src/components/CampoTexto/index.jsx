@@ -1,14 +1,45 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
+import search from "../../assets/search.png";
 
-const Input = styled.input`
-    padding: 10px;
-    border-radius: 5px;
-    border: linear-gradient(1px solid #ce8df3, 1px solid #7927ff);
-    margin: 5px 0;
-    width: 100%;
-`
-export default function CampoTexto({ type, value, onChange }) {
+
+const ContainerEstilizado = styled.div`
+    position: relative;
+    display: inline-block;
+`;
+
+const InputEstilizado = styled.input`
+    font-family: 'Gandhi Sans', sans-serif;
+    height: 56px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: #C98CF1;
+    background: transparent;
+    box-sizing: border-box;
+    width: 566px;
+    color: #D9D9D9;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 20px
+`;
+
+const IconeLupa = styled.img`
+   position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    margin-right: 20px
+`;
+
+export default function CampoTexto(props) {
     return (
-        <Input type={type} placeholder="O que você procura?" value={value} onChange={onChange} />
+        <>
+            <ContainerEstilizado>
+                <InputEstilizado type="text" placeholder="O que você procura?" {...props}/>
+                <IconeLupa src={search} alt="Ícone de lupa" />
+            </ContainerEstilizado>
+        </>
     )
 }
